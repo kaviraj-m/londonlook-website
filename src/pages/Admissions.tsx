@@ -1,15 +1,18 @@
-import { Container, Typography } from '@mui/material';
+import AdmissionProcess  from "../components/admission/AdmissionProcess";
+import EligibilityCriteria  from "../components/admission/EligibilityCriteria";
+import RequiredDocuments  from "../components/admission/RequiredDocuments";
+import FeeStructure  from "../components/admission/FeeStructure";
+import FAQSection  from "../components/admission/FAQSection";
 
 const Admissions = () => {
   return (
-    <Container>
-      <Typography variant="h4" gutterBottom>
-        Admissions
-      </Typography>
-      <Typography variant="body1">
-        Admissions are open for the academic year. Contact us for more details!
-      </Typography>
-    </Container>
+    <div>
+      <AdmissionProcess/>
+      <EligibilityCriteria/>
+      <RequiredDocuments/>
+      <FeeStructure/>
+      <FAQSection/>
+    </div>
   );
 };
 

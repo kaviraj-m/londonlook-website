@@ -1,15 +1,19 @@
-import { Container, Typography } from '@mui/material';
+import OurStoryFounders from "../components/about/OurStoryFounders";
+import OurMissionValues from "../components/about/OurMissionValues";
+
+import MeetOurTeam from "../components/about/MeetOurTeam";
+import PrincipalMessage  from "../components/about/PrincipalMessage";
+import AccreditationsAchievements  from "../components/about/AccreditationsAchievements";
 
 const AboutUs = () => {
   return (
-    <Container>
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        About Us
-      </Typography>
-      <Typography variant="body1">
-        London Look Nursery and Primary School provides top-quality education from Kindergarten to 5th grade.
-      </Typography>
-    </Container>
+    <div>
+      <OurStoryFounders />
+      <OurMissionValues/>
+      <MeetOurTeam/>
+      <PrincipalMessage />
+      <AccreditationsAchievements />
+    </div>
   );
 };
 
