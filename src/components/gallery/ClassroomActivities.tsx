@@ -2,6 +2,11 @@ import { Container, Typography, Grid, Card, CardContent, CardMedia } from "@mui/
 
 const activities = [
   {
+    title: "Role Playing",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740044572/Role_playing_sashlh.jpg",
+    description: "Developing confidence and communication skills through creative dramatic play and storytelling activities."
+  },
+  {
     title: "Art & Painting",
     image: "https://www.springboardsupplies.co.uk/cdn/shop/articles/pexels-yan-krukov-8612990_800x.jpg?v=1627557564",
     description: "Encouraging creativity through painting and drawing sessions."

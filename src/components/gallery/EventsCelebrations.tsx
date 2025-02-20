@@ -2,24 +2,39 @@ import { Container, Typography, Grid, Card, CardContent, CardMedia } from "@mui/
 
 const events = [
   {
-    title: "Annual Day Celebration",
-    image: "https://makoons.com/blogs/wp-content/uploads/2025/01/makoons-1.jpg",
-    description: "A grand celebration of students' talents through performances, awards, and achievements."
+    title: "International Yoga Day",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047427/International_yoga_day_celebration_acr7ci.jpg",
+    description: "Students practicing yoga, promoting physical and mental well-being through ancient traditions."
   },
   {
-    title: "Sports Day",
-    image: "https://makoons.com/blogs/wp-content/uploads/2025/01/makoons-1.jpg",
-    description: "An exciting day filled with athletic events, team competitions, and sportsmanship."
+    title: "Sports & Games Day",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047427/Sports_day_and_playing_games_in_celeberation_wrna8b.jpg",
+    description: "Active participation in various sports activities fostering team spirit and physical fitness."
   },
   {
-    title: "Cultural Programs",
-    image: "https://makoons.com/blogs/wp-content/uploads/2025/01/makoons-1.jpg",
-    description: "Showcasing diverse cultural performances, music, dance, and drama by our talented students."
+    title: "International Book Reading Day",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047427/International_books_reading_day_wbkdb7.jpg",
+    description: "Cultivating a love for reading and literature among our young learners."
   },
   {
-    title: "Festival Celebrations",
-    image: "https://makoons.com/blogs/wp-content/uploads/2025/01/makoons-1.jpg",
-    description: "Bringing joy to the campus with celebrations of Diwali, Pongal, Christmas, and more."
+    title: "Kamarajar Birthday Celebration",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047428/Kamarajar_b_day_celebration_Fancy_dress_z7nu9q.jpg",
+    description: "Students dressed as historical figures, honoring the great education reformer."
+  },
+  {
+    title: "Christmas Celebrations",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047428/Christmas_celebration_ldjbkt.jpg",
+    description: "Festive celebrations with students spreading joy and Christmas spirit."
+  },
+  {
+    title: "Pongal with Parents",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047428/Pongal_celebration_in_Parents_participation_h20ykz.jpg",
+    description: "Traditional Pongal celebrations with active participation from parents and families."
+  },
+  {
+    title: "Republic Day Leaders",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047429/Fancy_dress_National_leadersRepublic_day_celebratio_jcc9ju.jpg",
+    description: "Students dressed as national leaders commemorating Republic Day with patriotic fervor."
   }
 ];
 
