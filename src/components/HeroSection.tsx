@@ -4,8 +4,10 @@ import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import kidsImage from "../assets/kids.png"; // Ensure the path is correct
 import waveBackground from "../assets/wave.svg"; // Added wave background
+import { useNavigate } from 'react-router-dom';  // Add this import at the top
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();  // Add this hook
   return (
     <Box
       sx={{
@@ -81,6 +83,7 @@ const HeroSection: React.FC = () => {
         >
           <Button
             variant="contained"
+            onClick={() => navigate('/admissions')}
             sx={{
               backgroundColor: "#7B1FA2",
               "&:hover": { backgroundColor: "#6A1B9A" },
@@ -94,6 +97,7 @@ const HeroSection: React.FC = () => {
 
           <Button
             variant="outlined"
+            onClick={() => navigate('/gallery')}
             startIcon={<PlayCircleFilledWhiteIcon />}
             sx={{
               color: "#333",
