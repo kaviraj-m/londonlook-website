@@ -1,23 +1,23 @@
 import { useState } from "react";
-import { Container, Typography, Stepper, Step, StepLabel, Paper, Box, TextField, Button, Grid, useTheme } from "@mui/material";
+import { Container, Typography, Stepper, Step, StepLabel, Paper, Box, TextField, Button, Grid } from "@mui/material";
 import { School, EventAvailable, Description, Payment } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
+const StyledPaper = styled(Paper)({
   transition: 'transform 0.3s ease-in-out',
   '&:hover': {
     transform: 'translateY(-5px)',
   },
   boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-}));
+});
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '&:hover fieldset': {
-      borderColor: theme.palette.primary.main,
+      borderColor: '#1976d2', // primary color
     },
   },
-}));
+});
 
 const steps = [
   { label: "Fill the admission inquiry form", icon: <School fontSize="large" color="primary" /> },
@@ -27,7 +27,6 @@ const steps = [
 ];
 
 export default function AdmissionProcess() {
-  const theme = useTheme();
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
