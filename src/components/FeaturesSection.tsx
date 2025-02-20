@@ -5,6 +5,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import BrushIcon from "@mui/icons-material/Brush";
+import { AcUnitRounded } from "@mui/icons-material";  // Add this import at the top with other imports
 
 const features = [
   {
@@ -22,7 +23,7 @@ const features = [
   {
     icon: <SchoolIcon fontSize="large" color="info" />,
     title: "Expert Educators",
-    description: "Passionate and experienced teachers for your child’s future.",
+    description: "Passionate and experienced teachers for your child's future.",
     bgColor: "#E3F2FD",
   },
   {
@@ -30,6 +31,12 @@ const features = [
     title: "Creative Activities",
     description: "Art and craft-based learning to boost creativity.",
     bgColor: "#E8F5E9",
+  },
+  {
+    icon: <AcUnitRounded fontSize="large" color="primary" />,
+    title: "Climate Controlled",
+    description: "Air-conditioned classrooms for comfortable learning environment.",
+    bgColor: "#E1F5FE",
   },
 ];
 

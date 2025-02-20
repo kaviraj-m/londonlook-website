@@ -111,8 +111,8 @@ const AboutSchool = () => {
             Why Choose Us?
           </Typography>
           <Typography variant="body1" color="textSecondary">
-            We offer a **progressive education system** that focuses on **academic rigor, creative exploration, and character building**.  
-            Our state-of-the-art facilities, **qualified faculty, and activity-based learning** make us the **ideal choice** for your child's education.
+            We offer a <strong>progressive education system</strong> that focuses on <strong>academic rigor, creative exploration, and character building</strong>.{' '}
+            Our state-of-the-art facilities, <strong>qualified faculty, and activity-based learning</strong> make us the <strong>ideal choice</strong> for your child's education.
           </Typography>
         </Box>
       </Container>
