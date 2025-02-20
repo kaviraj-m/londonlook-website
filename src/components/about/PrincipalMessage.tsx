@@ -10,13 +10,13 @@ export default function PrincipalMessage() {
         <Card sx={{ maxWidth: 800, display: "flex", borderRadius: 3, boxShadow: 5, transition: "0.3s", '&:hover': { boxShadow: 8 } }}>
           <CardMedia 
             component="img" 
-            image="https://cdn.creazilla.com/cliparts/3742107/school-principal-clipart-xl.png" 
+            image="https://res.cloudinary.com/daom8i3k5/image/upload/v1740061777/Dr.R.SARAVANASELVI.Ph.D._PRINCIPAL_qkjfxj.jpg" 
             alt="Principal" 
             sx={{ width: 200, height: 250, objectFit: "cover", borderRadius: "8px 0 0 8px" }}
           />
           <CardContent>
             <Typography variant="h5" fontWeight={700} color="secondary.dark">
-              Dr. S. Ramachandran
+            Dr.R.SARAVANASELVI.Ph.D
             </Typography>
             <Typography variant="subtitle1" color="primary" gutterBottom>
               Principal, London Look School

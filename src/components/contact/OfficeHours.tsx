@@ -6,7 +6,7 @@ export default function OfficeHours() {
   return (
     <Box 
       sx={{
-        background: "fff",
+        background: "linear-gradient(to bottom, #ffffff, #f8f9fa)",
         py: 8,
         display: "flex",
         justifyContent: "center",
@@ -19,51 +19,97 @@ export default function OfficeHours() {
           textAlign="center" 
           color="primary.dark" 
           gutterBottom
-          sx={{ mb: 3 }}
+          sx={{ mb: 4 }}
         >
-          Office Hours
+          School Timings
         </Typography>
 
-        <Card sx={{ borderRadius: 3, boxShadow: 7, overflow: "hidden", p: 4 }}>
-          <CardContent sx={{ textAlign: "center" }}>
-            <Stack spacing={3} alignItems="center">
-
-              {/* School Timings */}
-              <Stack 
-                direction="row" 
-                spacing={2} 
-                alignItems="center" 
-                sx={{
-                  width: "100%",
-                  justifyContent: "center",
-                  "&:hover": { color: "#512DA8" },
-                }}
-              >
-                <CalendarTodayIcon fontSize="large" color="primary" />
-                <Typography variant="h6" fontWeight={600}>
-                  <strong>Monday - Saturday</strong>
-                  <br />
-                  School Hours: <span style={{ fontWeight: 500 }}>8:30 AM - 3:30 PM</span>
-                </Typography>
-              </Stack>
-
+        <Card sx={{ borderRadius: 3, boxShadow: "0 8px 24px rgba(0,0,0,0.12)", p: 4 }}>
+          <CardContent>
+            <Stack spacing={4} alignItems="center">
               {/* Office Timings */}
               <Stack 
                 direction="row" 
-                spacing={2} 
+                spacing={3} 
                 alignItems="center" 
                 sx={{
                   width: "100%",
-                  justifyContent: "center",
-                  "&:hover": { color: "#303F9F" },
+                  p: 2,
+                  borderRadius: 2,
+                  backgroundColor: "rgba(0,0,0,0.02)",
+                  transition: "all 0.3s ease",
+                  "&:hover": { 
+                    backgroundColor: "rgba(0,0,0,0.04)",
+                    transform: "translateY(-2px)" 
+                  },
                 }}
               >
                 <AccessTimeIcon fontSize="large" color="secondary" />
-                <Typography variant="h6" fontWeight={600}>
-                  Office Hours: <span style={{ fontWeight: 500 }}>9:00 AM - 5:00 PM</span>
-                </Typography>
+                <Box>
+                  <Typography variant="h6" fontWeight={700} color="secondary.dark" gutterBottom>
+                    Office Hours
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    8:30 AM - 6:00 PM (Monday to Saturday)
+                  </Typography>
+                </Box>
               </Stack>
 
+              {/* Primary School (1st to 5th) */}
+              <Stack 
+                direction="row" 
+                spacing={3} 
+                alignItems="center" 
+                sx={{
+                  width: "100%",
+                  p: 2,
+                  borderRadius: 2,
+                  backgroundColor: "rgba(0,0,0,0.02)",
+                  transition: "all 0.3s ease",
+                  "&:hover": { 
+                    backgroundColor: "rgba(0,0,0,0.04)",
+                    transform: "translateY(-2px)" 
+                  },
+                }}
+              >
+                <CalendarTodayIcon fontSize="large" color="primary" />
+                <Box>
+                  <Typography variant="h6" fontWeight={700} color="primary.dark" gutterBottom>
+                    Classes I to V
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    9:30 AM - 4:00 PM (Monday to Saturday)
+                  </Typography>
+                </Box>
+              </Stack>
+
+              {/* Kindergarten */}
+              <Stack 
+                direction="row" 
+                spacing={3} 
+                alignItems="center" 
+                sx={{
+                  width: "100%",
+                  p: 2,
+                  borderRadius: 2,
+                  backgroundColor: "rgba(0,0,0,0.02)",
+                  transition: "all 0.3s ease",
+                  "&:hover": { 
+                    backgroundColor: "rgba(0,0,0,0.04)",
+                    transform: "translateY(-2px)" 
+                  },
+                }}
+              >
+                <CalendarTodayIcon fontSize="large" color="primary" />
+                <Box>
+                  <Typography variant="h6" fontWeight={700} color="primary.dark" gutterBottom>
+                    Pre-KG, LKG & UKG
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    9:30 AM - 2:30 PM (Monday to Saturday)
+                  </Typography>
+                </Box>
+              </Stack>
             </Stack>
           </CardContent>
         </Card>

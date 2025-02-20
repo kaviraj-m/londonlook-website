@@ -2,29 +2,24 @@ import { Container, Typography, Grid, Card, CardContent, CardMedia } from "@mui/
 
 const infrastructureItems = [
   {
-    title: "Spacious Classrooms",
-    image: "https://www.americanprogress.org/wp-content/uploads/sites/2/2021/05/SchoolInfrastructureReport.jpg",
+    title: "Modern Classrooms",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740061777/class_room_2_cvilkz.jpg",
     description: "Well-ventilated, tech-enabled classrooms designed to encourage interactive learning."
   },
   {
-    title: "Library",
-    image: "https://www.americanprogress.org/wp-content/uploads/sites/2/2021/05/SchoolInfrastructureReport.jpg",
-    description: "A well-stocked library with a vast collection of books to enhance knowledge and curiosity."
+    title: "School Building",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740061777/out_side_of_building_look_of_ykng91.jpg",
+    description: "State-of-the-art infrastructure with modern amenities for quality education."
   },
   {
-    title: "Play Area",
-    image: "https://www.americanprogress.org/wp-content/uploads/sites/2/2021/05/SchoolInfrastructureReport.jpg",
+    title: "Play Ground",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740061777/play_ground_outdoor_xzo8hg.jpg",
     description: "Safe and engaging outdoor play areas to promote physical activity and social development."
   },
   {
-    title: "Science & Computer Labs",
-    image: "https://www.americanprogress.org/wp-content/uploads/sites/2/2021/05/SchoolInfrastructureReport.jpg",
-    description: "Modern science and computer labs equipped with the latest technology for practical learning."
-  },
-  {
-    title: "Transport Facilities",
-    image: "https://www.americanprogress.org/wp-content/uploads/sites/2/2021/05/SchoolInfrastructureReport.jpg",
-    description: "Safe and reliable school transport covering multiple routes for students' convenience."
+    title: "Computer Lab",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740061778/computer_lab_fwj3ki.jpg",
+    description: "Modern computer lab equipped with the latest technology for practical learning."
   }
 ];
 

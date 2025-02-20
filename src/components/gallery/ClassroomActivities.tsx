@@ -7,14 +7,14 @@ const activities = [
     description: "Developing confidence and communication skills through creative dramatic play and storytelling activities."
   },
   {
-    title: "Art & Painting",
-    image: "https://www.springboardsupplies.co.uk/cdn/shop/articles/pexels-yan-krukov-8612990_800x.jpg?v=1627557564",
-    description: "Encouraging creativity through painting and drawing sessions."
+    title: "Yoga & Meditation",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740062079/Extra_curricular_Activity_Yoga_wznpoq.jpg",
+    description: "Promoting physical and mental well-being through yoga and mindfulness practices."
   },
   {
-    title: "Craft Workshops",
-    image: "https://www.springboardsupplies.co.uk/cdn/shop/articles/pexels-yan-krukov-8612990_800x.jpg?v=1627557564",
-    description: "Hands-on activities like paper crafting, origami, and model making."
+    title: "Creative Art Activities",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740047428/Colouring_activity_for_Kg_students_i3unwi.jpg",
+    description: "Nurturing artistic expression through coloring and creative activities."
   },
   {
     title: "Interactive Learning",
