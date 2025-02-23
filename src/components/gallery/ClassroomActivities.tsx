@@ -18,12 +18,12 @@ const activities = [
   },
   {
     title: "Interactive Learning",
-    image: "https://www.springboardsupplies.co.uk/cdn/shop/articles/pexels-yan-krukov-8612990_800x.jpg?v=1627557564",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740298316/tv_interactive_teaach_watching_tv_pdo1c5.jpg",
     description: "Smart classrooms with digital learning tools for interactive lessons."
   },
   {
     title: "Group Projects",
-    image: "https://www.springboardsupplies.co.uk/cdn/shop/articles/pexels-yan-krukov-8612990_800x.jpg?v=1627557564",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740298316/tv_interactive_teaach_watching_tv_pdo1c5.jpg",
     description: "Collaborative projects to build teamwork and problem-solving skills."
   }
 ];

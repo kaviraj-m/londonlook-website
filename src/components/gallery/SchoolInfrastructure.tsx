@@ -20,6 +20,11 @@ const infrastructureItems = [
     title: "Computer Lab",
     image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740061778/computer_lab_fwj3ki.jpg",
     description: "Modern computer lab equipped with the latest technology for practical learning."
+  },
+  {
+    title: "Air-Conditioned Classrooms",
+    image: "https://res.cloudinary.com/daom8i3k5/image/upload/v1740298429/ac_in_classrooms_gpvyhz.jpg",
+    description: "Climate-controlled learning spaces ensuring comfortable environment throughout the year."
   }
 ];
 

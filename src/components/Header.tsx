@@ -35,25 +35,46 @@ const Header = () => {
           boxShadow: shrink ? '0px 2px 10px rgba(0,0,0,0.1)' : 'none',
         }}
       >
-        <Toolbar
-          sx={{
+        <Toolbar sx={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: shrink ? '10px 20px' : '25px 20px',
             transition: 'all 0.3s ease-in-out',
-          }}
-        >
+          }}>
           <Typography
             variant="h5"
             sx={{
               fontFamily: '"Pacifico", cursive',
               fontWeight: 'bold',
-              color: 'black',
               letterSpacing: '2px',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+              '& span': {
+                textShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+              },
+              '& span:nth-of-type(1)': { color: '#FF1493' },
+              '& span:nth-of-type(2)': { color: '#FF0000' },
+              '& span:nth-of-type(3)': { color: '#4169E1' },
+              '& span:nth-of-type(4)': { color: '#FF4500' },
+              '& span:nth-of-type(5)': { color: '#FF8C00' },
+              '& span:nth-of-type(6)': { color: '#FFD700' },
+              '& span:nth-of-type(7)': { color: '#FF1493', marginLeft: '12px' }, // Added margin for space
+              '& span:nth-of-type(8)': { color: '#4169E1' },
+              '& span:nth-of-type(9)': { color: '#FF8C00' },
+              '& span:nth-of-type(10)': { color: '#FFD700' },
+              fontSize: { xs: '1.2rem', sm: '1.6rem' }, // Reduced font size
             }}
           >
-            London Look
+            <span>L</span>
+            <span>O</span>
+            <span>N</span>
+            <span>D</span>
+            <span>O</span>
+            <span>N</span>
+            <span>L</span>
+            <span>O</span>
+            <span>O</span>
+            <span>K</span>
           </Typography>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '30px' }}>
