@@ -58,50 +58,39 @@ const Header = () => {
             padding: shrink ? '10px 20px' : '25px 20px',
             transition: 'all 0.3s ease-in-out',
           }}>
-          <Typography
-            variant="h5"
+          {/* Replace Typography with Box containing image */}
+          <Box
+            component="img"
+            src="/logo.jpg"
+            alt="London Look"
             sx={{
-              fontFamily: '"Xavier Sans Black", sans-serif',
-              fontWeight: 'normal',
-              letterSpacing: '2px',
-              '& span': {
-                display: 'inline-block',
-                fontFamily: '"Xavier Sans Black", sans-serif',
-                textShadow: '2px 2px 0 #FFF, -2px -2px 0 #FFF, 2px -2px 0 #FFF, -2px 2px 0 #FFF',
-                filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))',
-                padding: '0 1px',
+              height: { 
+                xs: '22px',
+                sm: '45px',
+                md: '50px'
               },
-              textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
-              '& span.letter': {
-                fontFamily: '"Xavier Sans Black", sans-serif',
-                textShadow: '1px 1px 3px rgba(0,0,0,0.3)',
-              },
-              '& span:nth-of-type(1)': { color: '#E31E24' }, // Red L
-              '& span:nth-of-type(2)': { color: '#FF1493' }, // Pink O
-              '& span:nth-of-type(3)': { color: '#1E3F8F' }, // Navy Blue N
-              '& span:nth-of-type(4)': { color: '#FF69B4' }, // Pink D
-              '& span:nth-of-type(5)': { color: '#00BFF3' }, // Light Blue O
-              '& span:nth-of-type(6)': { color: '#FF8C00' }, // Orange N
-              '& span:nth-of-type(7)': { color: '#8B4513', marginLeft: '12px' }, // Brown L
-              '& span:nth-of-type(8)': { color: '#FF0000' }, // Red O
-              '& span:nth-of-type(9)': { color: '#FF1493' }, // Pink O
-              '& span:nth-of-type(10)': { color: '#1E3F8F' }, // Navy Blue K
-              fontSize: { xs: '1.4rem', sm: '2rem' }, // Increased font size
-              transform: 'skew(-5deg)', // Slight tilt like the image
+              width: 'auto',
+              objectFit: 'contain',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              borderRadius: { xs: '8px', sm: '12px' },
+              padding: { xs: '3px', sm: '4px' },
+              background: 'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7))',
+              backdropFilter: 'blur(8px)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+              '&:hover': {
+                transform: { 
+                  xs: 'translateY(-1px) scale(1.01)',
+                  sm: 'translateY(-2px) scale(1.02)'
+                },
+                boxShadow: '0 6px 16px rgba(0,0,0,0.08)',
+                background: 'linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85))',
+              }
             }}
-          >
-            <span>L</span>
-            <span>O</span>
-            <span>N</span>
-            <span>D</span>
-            <span>O</span>
-            <span>N</span>
-            <span>L</span>
-            <span>O</span>
-            <span>O</span>
-            <span>K</span>
-          </Typography>
+            onClick={() => navigate('/')}
+          />
 
+          {/* Rest of the code remains the same */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '30px' }}>
             {menuItems.map((item) => (
               <Button
