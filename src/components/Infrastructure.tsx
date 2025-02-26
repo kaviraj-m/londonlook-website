@@ -65,7 +65,7 @@ const Infrastructure: React.FC = () => {
             Pre-KG, LKG
           </Typography>
           <Typography variant="body1" color="textSecondary">
-            சேறும் குழந்தைகளுக்கு சிறப்பு பாரிசா வழங்கப்படும்
+            பிரி கேஜி மற்றும் எல்கேஜி வகுப்புகளில் சேரும் குழந்தைகளுக்கு சைக்கிள் பரிசு வழங்கப்படும்
           </Typography>
         </Box>
 

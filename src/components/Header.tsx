@@ -4,6 +4,22 @@ import { AppBar, Toolbar, IconButton, Button, Drawer, List, ListItemButton, List
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import PhoneIcon from '@mui/icons-material/Phone';
+import XavierSansBlack from '../assets/Xavier Sans Black.ttf';
+
+// Add font-face declaration
+const fontFace = `
+  @font-face {
+    font-family: 'Xavier Sans Black';
+    src: url(${XavierSansBlack}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+`;
+
+// Add style element to head
+const style = document.createElement('style');
+style.appendChild(document.createTextNode(fontFace));
+document.head.appendChild(style);
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -45,24 +61,33 @@ const Header = () => {
           <Typography
             variant="h5"
             sx={{
-              fontFamily: '"Pacifico", cursive',
-              fontWeight: 'bold',
+              fontFamily: '"Xavier Sans Black", sans-serif',
+              fontWeight: 'normal',
               letterSpacing: '2px',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
               '& span': {
+                display: 'inline-block',
+                fontFamily: '"Xavier Sans Black", sans-serif',
+                textShadow: '2px 2px 0 #FFF, -2px -2px 0 #FFF, 2px -2px 0 #FFF, -2px 2px 0 #FFF',
+                filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))',
+                padding: '0 1px',
+              },
+              textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+              '& span.letter': {
+                fontFamily: '"Xavier Sans Black", sans-serif',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.3)',
               },
-              '& span:nth-of-type(1)': { color: '#FF1493' },
-              '& span:nth-of-type(2)': { color: '#FF0000' },
-              '& span:nth-of-type(3)': { color: '#4169E1' },
-              '& span:nth-of-type(4)': { color: '#FF4500' },
-              '& span:nth-of-type(5)': { color: '#FF8C00' },
-              '& span:nth-of-type(6)': { color: '#FFD700' },
-              '& span:nth-of-type(7)': { color: '#FF1493', marginLeft: '12px' }, // Added margin for space
-              '& span:nth-of-type(8)': { color: '#4169E1' },
-              '& span:nth-of-type(9)': { color: '#FF8C00' },
-              '& span:nth-of-type(10)': { color: '#FFD700' },
-              fontSize: { xs: '1.2rem', sm: '1.6rem' }, // Reduced font size
+              '& span:nth-of-type(1)': { color: '#E31E24' }, // Red L
+              '& span:nth-of-type(2)': { color: '#FF1493' }, // Pink O
+              '& span:nth-of-type(3)': { color: '#1E3F8F' }, // Navy Blue N
+              '& span:nth-of-type(4)': { color: '#FF69B4' }, // Pink D
+              '& span:nth-of-type(5)': { color: '#00BFF3' }, // Light Blue O
+              '& span:nth-of-type(6)': { color: '#FF8C00' }, // Orange N
+              '& span:nth-of-type(7)': { color: '#8B4513', marginLeft: '12px' }, // Brown L
+              '& span:nth-of-type(8)': { color: '#FF0000' }, // Red O
+              '& span:nth-of-type(9)': { color: '#FF1493' }, // Pink O
+              '& span:nth-of-type(10)': { color: '#1E3F8F' }, // Navy Blue K
+              fontSize: { xs: '1.4rem', sm: '2rem' }, // Increased font size
+              transform: 'skew(-5deg)', // Slight tilt like the image
             }}
           >
             <span>L</span>
