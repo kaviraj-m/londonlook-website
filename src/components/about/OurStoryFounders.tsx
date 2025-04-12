@@ -1,4 +1,4 @@
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, Divider, Paper } from "@mui/material";
+import { Container, Typography, Grid, Card, CardContent, CardMedia, Box } from "@mui/material";
 
 const founder = {
   name: "Dr. K. Krishnamoorthy",

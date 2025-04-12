@@ -1,6 +1,5 @@
 import HeroSection from "../components/HeroSection";
 import FeaturesSection from "../components/FeaturesSection";
-import Testimonials from "../components/Testimonials";
 import VirtualTour from "../components/VirtualTour";
 import { Box } from "@mui/material";
 import Infrastructure from "../components/Infrastructure";
