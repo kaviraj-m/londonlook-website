@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
             fontWeight: 700,
             color: "#333",
             fontFamily: "'Comic Sans MS', cursive, sans-serif",
-            fontSize: { xs: "2.2rem", md: "3.5rem" },
+            fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.5rem" },
             lineHeight: 1.3,
           }}
         >
@@ -65,8 +65,9 @@ const HeroSection: React.FC = () => {
           sx={{
             mt: 3,
             color: "#555",
-            fontSize: { xs: "1rem", md: "1.2rem" },
+            fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
             lineHeight: 1.7,
+            fontFamily: "'Comic Sans MS', cursive, sans-serif",
           }}
         >
           Discover a <strong>student-focused learning experience</strong> at our{" "}
@@ -107,7 +108,7 @@ const HeroSection: React.FC = () => {
               padding: "12px 24px",
             }}
           >
-            Watch Video
+            Watch Gallery
           </Button>
 
           <Button

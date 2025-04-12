@@ -15,7 +15,6 @@ const Home = () => {
       <AboutSchool/>
       <ProgramsOffered/>
       <Infrastructure/>
-      <Testimonials />
       <VirtualTour />
     </Box>
   );

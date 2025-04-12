@@ -6,7 +6,6 @@ const requiredDocuments = [
   { name: "Passport-size Photos", description: "Recent passport-size photographs (4 copies)." },
   { name: "Aadhar Card", description: "Aadhar card of the student and parents (photocopy required)." },
   { name: "Previous School Report", description: "Report card from the last attended school (if applicable)." },
-  { name: "Address Proof", description: "Utility bill, rental agreement, or any valid address proof." }
 ];
 
 export default function RequiredDocuments() {
