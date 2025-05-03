@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { 
   TextField, 
   Button, 
@@ -9,7 +9,10 @@ import {
   Stack, 
   Box,
   Paper,
-  styled
+  styled,
+  Snackbar,
+  Alert,
+  CircularProgress
 } from "@mui/material";
 import { 
   Send, 
@@ -72,15 +75,84 @@ export default function InquiryForm() {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Simple validation function
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      setSnackbar({
+        open: true,
+        message: "Please fill in all required fields",
+        severity: "error"
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Inquiry Submitted Successfully!");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Create a FormData object from the form
+      const formData = new FormData(formRef.current!);
+      
+      // Create a URLSearchParams object for sending as application/x-www-form-urlencoded
+      const params = new URLSearchParams();
+      for (const pair of formData.entries()) {
+        params.append(pair[0], pair[1].toString());
+      }
+      
+      // Send the form data using fetch
+      const response = await fetch('https://formsubmit.co/ajax/Londonlook9@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params,
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        // Reset form after successful submission
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        
+        // Show success message
+        setSnackbar({
+          open: true,
+          message: "Your message has been sent successfully! We'll be in touch soon.",
+          severity: "success"
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSnackbar({
+        open: true,
+        message: "Failed to send message. Please try again or contact us directly.",
+        severity: "error"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbar({ ...snackbar, open: false });
   };
 
   // Icons with colors for form fields
@@ -102,6 +174,27 @@ export default function InquiryForm() {
         overflow: "hidden"
       }}
     >
+      {/* Success/Error Notification */}
+      <Snackbar 
+        open={snackbar.open} 
+        autoHideDuration={6000} 
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert 
+          onClose={handleCloseSnackbar} 
+          severity={snackbar.severity as "success" | "error"} 
+          sx={{ 
+            width: '100%',
+            fontFamily: "'Comic Neue', cursive",
+            fontSize: '1rem',
+            fontWeight: 'bold'
+          }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+
       {/* Floating animated decorations */}
       {[...Array(6)].map((_, i) => (
         <MotionBox
@@ -245,7 +338,17 @@ export default function InquiryForm() {
               </Typography>
             </MotionBox>
 
-            <form onSubmit={handleSubmit}>
+            <form 
+              ref={formRef} 
+              onSubmit={handleSubmit}
+            >
+              {/* FormSubmit hidden fields */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="New Contact Inquiry from London Look Website" />
+              <input type="hidden" name="_cc" value="kaviraj9042@gmail.com" />
+              <input type="hidden" name="_honey" style={{ display: 'none' }} />
+              <input type="hidden" name="_template" value="table" />
+
               <Stack spacing={4}>
                 {[
                   { 
@@ -346,6 +449,7 @@ export default function InquiryForm() {
                     component={motion.button}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    disabled={isSubmitting}
                     sx={{
                       background: "linear-gradient(45deg, #FF4081 30%, #9C27B0 90%)",
                       borderRadius: 8,
@@ -357,23 +461,32 @@ export default function InquiryForm() {
                       textTransform: "none"
                     }}
                     endIcon={
-                      <Box
-                        component={motion.div}
-                        animate={{ 
-                          x: [0, 5, 0],
-                          y: [0, -3, 0]
-                        }}
-                        transition={{ 
-                          duration: 1.5, 
-                          repeat: Infinity,
-                          repeatType: "loop" 
-                        }}
-                      >
-                        <Send />
-                      </Box>
+                      isSubmitting ? null : (
+                        <Box
+                          component={motion.div}
+                          animate={{ 
+                            x: [0, 5, 0],
+                            y: [0, -3, 0]
+                          }}
+                          transition={{ 
+                            duration: 1.5, 
+                            repeat: Infinity,
+                            repeatType: "loop" 
+                          }}
+                        >
+                          <Send />
+                        </Box>
+                      )
                     }
                   >
-                    Send Message
+                    {isSubmitting ? (
+                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <CircularProgress size={24} color="inherit" sx={{ mr: 1 }} />
+                        Sending...
+                      </Box>
+                    ) : (
+                      "Send Message"
+                    )}
                   </Button>
                 </MotionBox>
 

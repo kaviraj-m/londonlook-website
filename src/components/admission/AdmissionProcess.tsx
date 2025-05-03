@@ -1,9 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Container, Typography, Stepper, Step, StepLabel, Paper, Box, TextField, Button, Grid, Avatar, Link, CircularProgress, Snackbar, Alert } from "@mui/material";
 import { School, EventAvailable, Description, Payment, Stars, EmojiEvents, CloudQueue, Cake, Favorite, CloudDownload, CheckCircle } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import emailjs from '@emailjs/browser';
 
 // Import Google Fonts
 import '@fontsource/bubblegum-sans';
@@ -77,66 +76,68 @@ export default function AdmissionProcess() {
   const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
   const formRef = useRef<HTMLFormElement>(null);
   
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init("lmAxAzswcXnKT5S5N");
-  }, []);
-  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone) {
+  // Simple validation function
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       setSnackbar({
         open: true,
         message: "Please fill in all required fields",
         severity: "error"
       });
+      return false;
+    }
+    return true;
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
       return;
     }
-
+    
     setIsSubmitting(true);
-
-    // Create template parameters
-    const templateParams = {
-      to_name: "London Look School",
-      from_name: formData.name,
-      user_email: formData.email,
-      user_phone: formData.phone,
-      message: formData.message,
-      reply_to: formData.email,
-      to_email: "Londonlook9@gmail.com",
-      sender_email: "tamilankaviraj@gmail.com", // The sender email address
-      subject: "New Admission Inquiry from London Look Website"
-    };
-
+    
     try {
-      // Use sendForm when you have a form reference, or send when you have template parameters
-      await emailjs.send(
-        "service_nq0ow9o", // Service ID
-        "template_5hxcjmi", // Template ID
-        templateParams,
-        "lmAxAzswcXnKT5S5N" // Public Key
-      );
+      // Create a FormData object from the form
+      const formData = new FormData(formRef.current!);
       
-      console.log("Email sent successfully!");
+      // Create a URLSearchParams object for sending as application/x-www-form-urlencoded
+      const params = new URLSearchParams();
+      for (const pair of formData.entries()) {
+        params.append(pair[0], pair[1].toString());
+      }
       
-      // Reset form
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      
-      // Show success message
-      setSnackbar({
-        open: true,
-        message: "Your inquiry has been submitted successfully! We'll contact you soon.",
-        severity: "success"
+      // Send the form data using fetch
+      const response = await fetch('https://formsubmit.co/ajax/Londonlook9@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params,
       });
-    } catch (error) {
-      console.error("Failed to send email:", error);
       
-      // Show error message
+      const data = await response.json();
+      
+      if (data.success) {
+        // Reset form after successful submission
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        
+        // Show success message
+        setSnackbar({
+          open: true,
+          message: "Your inquiry has been submitted successfully! We'll contact you soon.",
+          severity: "success"
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSnackbar({
         open: true,
         message: "Failed to submit inquiry. Please try again or contact us directly.",
@@ -554,7 +555,17 @@ export default function AdmissionProcess() {
             </Typography>
           </Box>
 
-          <form ref={formRef} onSubmit={handleSubmit}>
+          <form 
+            ref={formRef} 
+            onSubmit={handleSubmit}
+          >
+            {/* FormSubmit hidden fields */}
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="New Admission Inquiry from London Look Website" />
+            <input type="hidden" name="_cc" value="kaviraj9042@gmail.com" />
+            <input type="hidden" name="_honey" style={{ display: 'none' }} />
+            <input type="hidden" name="_template" value="table" />
+            
             <Grid container spacing={4}>
               <Grid item xs={12} sm={6}>
                 <StyledTextField
