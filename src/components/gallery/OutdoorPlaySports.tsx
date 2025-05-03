@@ -1,5 +1,12 @@
 import { Container, Typography, Grid, Card, CardContent, CardMedia } from "@mui/material";
 
+// Import Google Fonts
+import '@fontsource/bubblegum-sans';
+import '@fontsource/fredoka';
+import '@fontsource/patrick-hand';
+import '@fontsource/baloo-2';
+import '@fontsource/comic-neue';
+
 const outdoorActivities = [
   {
     title: "Yoga Sessions",
@@ -26,10 +33,30 @@ const outdoorActivities = [
 export default function OutdoorPlaySports() {
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h3" gutterBottom fontWeight={700} textAlign="center" color="primary.dark">
+      <Typography 
+        variant="h3" 
+        gutterBottom 
+        fontWeight={700} 
+        textAlign="center" 
+        sx={{ 
+          color: "primary.dark",
+          fontFamily: "'Fredoka', cursive",
+          fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
+        }}
+      >
         Outdoor Play & Sports
       </Typography>
-      <Typography variant="body1" color="textSecondary" textAlign="center" mb={4} sx={{ px: 2 }}>
+      <Typography 
+        variant="body1" 
+        textAlign="center" 
+        mb={4} 
+        sx={{ 
+          px: 2,
+          color: "textSecondary",
+          fontFamily: "'Comic Neue', cursive",
+          fontSize: "1.1rem"
+        }}
+      >
         Physical activity is an essential part of our curriculum. We promote fitness, teamwork, and fun through various sports and outdoor games.
       </Typography>
       <Grid container spacing={4} justifyContent="center">
@@ -38,10 +65,23 @@ export default function OutdoorPlaySports() {
             <Card sx={{ borderRadius: 3, boxShadow: 5, transition: '0.3s', '&:hover': { boxShadow: 8 } }}>
               <CardMedia component="img" height="220" image={activity.image} alt={activity.title} />
               <CardContent>
-                <Typography variant="h6" fontWeight={700} color="secondary.dark">
+                <Typography 
+                  variant="h6" 
+                  fontWeight={700} 
+                  sx={{ 
+                    color: "secondary.dark",
+                    fontFamily: "'Fredoka', cursive" 
+                  }}
+                >
                   {activity.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: "textSecondary",
+                    fontFamily: "'Comic Neue', cursive" 
+                  }}
+                >
                   {activity.description}
                 </Typography>
               </CardContent>

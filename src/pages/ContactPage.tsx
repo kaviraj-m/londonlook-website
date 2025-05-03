@@ -10,7 +10,6 @@ const ContactPage = () => {
       <ContactInformation />
       <OfficeHours />
       <InquiryForm />
-      <SocialMediaLinks />
     </div>
   );
 };

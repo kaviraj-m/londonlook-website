@@ -1,5 +1,69 @@
 import { useState } from "react";
-import { TextField, Button, Container, Typography, Card, CardContent, Stack } from "@mui/material";
+import { 
+  TextField, 
+  Button, 
+  Container, 
+  Typography, 
+  Card, 
+  CardContent, 
+  Stack, 
+  Box,
+  Paper,
+  styled
+} from "@mui/material";
+import { 
+  Send, 
+  EmojiEmotions, 
+  Favorite, 
+  Stars,
+  Email,
+  Person,
+  Phone as PhoneIcon,
+  MessageRounded
+} from "@mui/icons-material";
+import { motion } from "framer-motion";
+
+// Import Google Fonts
+import '@fontsource/bubblegum-sans';
+import '@fontsource/fredoka';
+import '@fontsource/patrick-hand';
+import '@fontsource/baloo-2';
+import '@fontsource/comic-neue';
+
+// Create motion components
+const MotionCard = motion(Card);
+const MotionBox = motion(Box);
+
+// Styled components
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  '& .MuiOutlinedInput-root': {
+    borderRadius: 15,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.02)',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+    },
+    '&.Mui-focused': {
+      boxShadow: '0 6px 16px rgba(0,0,0,0.15)'
+    },
+    paddingLeft: '48px'
+  },
+  '& .MuiInputLabel-root': {
+    fontFamily: "'Fredoka', cursive",
+    fontWeight: 600,
+    color: '#5D4037',
+    marginLeft: '36px'
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    borderWidth: 2,
+    borderColor: '#9C27B0'
+  },
+  '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: '#673AB7 !important',
+    borderWidth: 2
+  }
+}));
 
 export default function InquiryForm() {
   const [formData, setFormData] = useState({
@@ -19,62 +83,342 @@ export default function InquiryForm() {
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
+  // Icons with colors for form fields
+  const formIcons = [
+    { icon: <Person />, color: "#FF5722" },
+    { icon: <Email />, color: "#2196F3" },
+    { icon: <PhoneIcon />, color: "#4CAF50" },
+    { icon: <MessageRounded />, color: "#9C27B0" },
+  ];
+
   return (
-    <Container maxWidth="sm" sx={{ py: 6 }}>
-      <Card sx={{ boxShadow: 6, borderRadius: 3 }}>
-        <CardContent>
-          <Typography variant="h4" fontWeight={700} textAlign="center" color="primary" gutterBottom>
-            Inquiry Form
-          </Typography>
-          <form onSubmit={handleSubmit}>
-            <Stack spacing={3}>
-              <TextField
-                label="Full Name"
-                name="name"
-                variant="outlined"
-                fullWidth
-                required
-                value={formData.name}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Email Address"
-                name="email"
-                type="email"
-                variant="outlined"
-                fullWidth
-                required
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Phone Number"
-                name="phone"
-                type="tel"
-                variant="outlined"
-                fullWidth
-                required
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Your Inquiry"
-                name="message"
-                variant="outlined"
-                multiline
-                rows={4}
-                fullWidth
-                required
-                value={formData.message}
-                onChange={handleChange}
-              />
-              <Button type="submit" variant="contained" color="primary" size="large" fullWidth>
-                Submit Inquiry
-              </Button>
-            </Stack>
-          </form>
-        </CardContent>
-      </Card>
-    </Container>
+    <Box
+      sx={{
+        background: "linear-gradient(135deg, #FFD3E0 0%, #D1C4E9 100%)",
+        py: { xs: 6, md: 8 },
+        borderRadius: { xs: '0', md: '25px' },
+        margin: { xs: 0, md: 4 },
+        position: "relative",
+        overflow: "hidden"
+      }}
+    >
+      {/* Floating animated decorations */}
+      {[...Array(6)].map((_, i) => (
+        <MotionBox
+          key={i}
+          animate={{
+            y: [0, -15, 0],
+            x: [0, i % 2 === 0 ? 10 : -10, 0],
+            rotate: [0, i % 2 === 0 ? 10 : -10, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{
+            duration: 5 + i,
+            repeat: Infinity,
+            delay: i * 0.5
+          }}
+          sx={{
+            position: "absolute",
+            width: 30 + i * 10,
+            height: 30 + i * 10,
+            borderRadius: "50%",
+            background: i % 3 === 0 
+              ? "linear-gradient(135deg, #FF9800 30%, #FFEB3B 90%)" 
+              : i % 3 === 1 
+                ? "linear-gradient(135deg, #F50057 30%, #FF4081 90%)"
+                : "linear-gradient(135deg, #2196F3 30%, #4FC3F7 90%)",
+            opacity: 0.4,
+            top: `${10 + (i * 15)}%`,
+            left: i % 2 === 0 ? `${5 + (i * 10)}%` : `${80 - (i * 10)}%`,
+            zIndex: 0,
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        />
+      ))}
+
+      <Container maxWidth="sm" sx={{ py: 6, position: "relative", zIndex: 1 }}>
+        <MotionCard 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.7, 
+            type: "spring", 
+            stiffness: 50 
+          }}
+          sx={{ 
+            boxShadow: '0 12px 30px rgba(0,0,0,0.2)',
+            borderRadius: { xs: 4, md: 6 },
+            overflow: "hidden",
+            border: "5px solid #FFC107",
+            position: "relative",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "10px",
+              background: "linear-gradient(90deg, #FF9800, #F44336, #9C27B0, #3F51B5, #4CAF50, #FFC107)",
+              zIndex: 10
+            }
+          }}
+        >
+          {/* Form Title Decoration */}
+          <Box
+            component={motion.div}
+            animate={{ scale: [1, 1.05, 1], rotate: [0, 1, 0, -1, 0] }}
+            transition={{ duration: 5, repeat: Infinity }}
+            sx={{
+              position: "absolute",
+              top: -20,
+              right: -20,
+              zIndex: 10
+            }}
+          >
+            <Paper
+              elevation={5}
+              sx={{
+                width: 60,
+                height: 60,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#FF4081",
+                color: "white",
+                border: "2px dashed white",
+                boxShadow: '0 5px 15px rgba(244,67,54,0.4)'
+              }}
+            >
+              <EmojiEmotions sx={{ fontSize: 35 }} />
+            </Paper>
+          </Box>
+
+          <CardContent sx={{ p: 4 }}>
+            <MotionBox
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              sx={{ textAlign: "center", mb: 4 }}
+            >
+              <Typography 
+                variant="h4" 
+                fontWeight={700} 
+                textAlign="center" 
+                gutterBottom
+                sx={{
+                  color: "#9C27B0",
+                  fontFamily: "'Fredoka', cursive",
+                  fontSize: { xs: '1.8rem', sm: '2.2rem' },
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 1.5
+                }}
+              >
+                <Stars 
+                  sx={{ 
+                    color: "#FFC107", 
+                    fontSize: { xs: 30, md: 35 },
+                    animation: "spin 4s linear infinite"
+                  }}
+                />
+                Say Hello!
+                <Stars 
+                  sx={{ 
+                    color: "#FFC107", 
+                    fontSize: { xs: 30, md: 35 },
+                    animation: "spin 4s linear infinite",
+                    animationDelay: "2s"
+                  }}
+                />
+              </Typography>
+              <Typography 
+                variant="body1"
+                sx={{
+                  color: "#5D4037",
+                  fontFamily: "'Comic Neue', cursive",
+                  mb: 2
+                }}
+              >
+                Have a question or want to know more? Fill out this form, and we'll get back to you soon!
+              </Typography>
+            </MotionBox>
+
+            <form onSubmit={handleSubmit}>
+              <Stack spacing={4}>
+                {[
+                  { 
+                    label: "Full Name", 
+                    name: "name", 
+                    type: "text", 
+                    rows: undefined,
+                    multiline: false,
+                    icon: formIcons[0]
+                  },
+                  { 
+                    label: "Email Address", 
+                    name: "email", 
+                    type: "email", 
+                    rows: undefined,
+                    multiline: false,
+                    icon: formIcons[1]
+                  },
+                  { 
+                    label: "Phone Number", 
+                    name: "phone", 
+                    type: "tel", 
+                    rows: undefined,
+                    multiline: false,
+                    icon: formIcons[2]
+                  },
+                  { 
+                    label: "Your Message", 
+                    name: "message", 
+                    type: "text", 
+                    rows: 4,
+                    multiline: true,
+                    icon: formIcons[3]
+                  }
+                ].map((field, index) => (
+                  <MotionBox
+                    key={field.name}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
+                    sx={{ position: "relative", mb: 1 }}
+                  >
+                    <Box
+                      component={motion.div}
+                      whileHover={{ rotate: [0, -5, 5, 0], scale: 1.1 }}
+                      sx={{
+                        position: "absolute",
+                        left: 16,
+                        top: 14,
+                        width: 30,
+                        height: 30,
+                        borderRadius: "50%",
+                        background: field.icon.color,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        zIndex: 5,
+                        boxShadow: `0 4px 8px ${field.icon.color}80`
+                      }}
+                    >
+                      <Box sx={{ fontSize: 18, "& > svg": { fontSize: 18 } }}>
+                        {field.icon.icon}
+                      </Box>
+                    </Box>
+                    <StyledTextField
+                      label={field.label}
+                      name={field.name}
+                      type={field.type}
+                      variant="outlined"
+                      fullWidth
+                      required
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={handleChange}
+                      multiline={field.multiline}
+                      rows={field.rows}
+                      InputProps={{
+                        sx: { 
+                          fontFamily: "'Comic Neue', cursive",
+                        }
+                      }}
+                    />
+                  </MotionBox>
+                ))}
+
+                <MotionBox
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  sx={{ mt: 3 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <Button 
+                    type="submit" 
+                    variant="contained" 
+                    size="large" 
+                    fullWidth
+                    component={motion.button}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    sx={{
+                      background: "linear-gradient(45deg, #FF4081 30%, #9C27B0 90%)",
+                      borderRadius: 8,
+                      py: 1.5,
+                      boxShadow: '0 6px 15px rgba(244, 67, 54, 0.4)',
+                      fontFamily: "'Fredoka', cursive",
+                      fontWeight: 600,
+                      fontSize: "1.1rem",
+                      textTransform: "none"
+                    }}
+                    endIcon={
+                      <Box
+                        component={motion.div}
+                        animate={{ 
+                          x: [0, 5, 0],
+                          y: [0, -3, 0]
+                        }}
+                        transition={{ 
+                          duration: 1.5, 
+                          repeat: Infinity,
+                          repeatType: "loop" 
+                        }}
+                      >
+                        <Send />
+                      </Box>
+                    }
+                  >
+                    Send Message
+                  </Button>
+                </MotionBox>
+
+                <MotionBox
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  sx={{ 
+                    textAlign: "center", 
+                    mt: 2,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 0.5
+                  }}
+                >
+                  <Typography 
+                    variant="body2" 
+                    sx={{ 
+                      color: "#5D4037", 
+                      fontFamily: "'Fredoka', cursive",
+                    }}
+                  >
+                    We respond with love
+                  </Typography>
+                  <Favorite sx={{ color: "#F44336", fontSize: 18 }} />
+                </MotionBox>
+              </Stack>
+            </form>
+          </CardContent>
+        </MotionCard>
+      </Container>
+
+      {/* Add keyframes for animations */}
+      <Box
+        sx={{
+          '@keyframes spin': {
+            '0%': {
+              transform: 'rotate(0deg)',
+            },
+            '100%': {
+              transform: 'rotate(360deg)',
+            },
+          }
+        }}
+      />
+    </Box>
   );
 }

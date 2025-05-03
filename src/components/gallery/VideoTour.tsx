@@ -1,5 +1,12 @@
 import { Container, Typography, Grid, Card, CardContent } from "@mui/material";
 
+// Import Google Fonts
+import '@fontsource/bubblegum-sans';
+import '@fontsource/fredoka';
+import '@fontsource/patrick-hand';
+import '@fontsource/baloo-2';
+import '@fontsource/comic-neue';
+
 const videoLinks = [
   {
     title: "Campus Tour",
@@ -26,10 +33,30 @@ const videoLinks = [
 export default function VideoTour() {
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h3" gutterBottom fontWeight={700} textAlign="center" color="primary.dark">
+      <Typography 
+        variant="h3" 
+        gutterBottom 
+        fontWeight={700} 
+        textAlign="center" 
+        sx={{ 
+          color: "primary.dark",
+          fontFamily: "'Fredoka', cursive",
+          fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
+        }}
+      >
         🎬 Video Tour
       </Typography>
-      <Typography variant="body1" color="textSecondary" textAlign="center" mb={4} sx={{ px: 2 }}>
+      <Typography 
+        variant="body1" 
+        textAlign="center" 
+        mb={4} 
+        sx={{ 
+          px: 2,
+          color: "textSecondary",
+          fontFamily: "'Comic Neue', cursive",
+          fontSize: "1.1rem"
+        }}
+      >
         Get a glimpse of our school's vibrant atmosphere through this short video tour.
       </Typography>
       <Grid container spacing={4} justifyContent="center">
@@ -47,10 +74,23 @@ export default function VideoTour() {
                 style={{ borderRadius: "10px" }}
               ></iframe>
               <CardContent>
-                <Typography variant="h6" fontWeight={700} color="secondary.dark">
+                <Typography 
+                  variant="h6" 
+                  fontWeight={700} 
+                  sx={{ 
+                    color: "secondary.dark",
+                    fontFamily: "'Fredoka', cursive" 
+                  }}
+                >
                   {video.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: "textSecondary",
+                    fontFamily: "'Comic Neue', cursive" 
+                  }}
+                >
                   {video.description}
                 </Typography>
               </CardContent>
