@@ -19,7 +19,6 @@ import '@fontsource/comic-neue';
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 const MotionPaper = motion(Paper);
-const MotionIconButton = motion(IconButton);
 
 export default function ContactInformation() {
   return (

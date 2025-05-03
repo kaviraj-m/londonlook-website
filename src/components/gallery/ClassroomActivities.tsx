@@ -5,7 +5,6 @@ import {
   SelfImprovement, 
   Palette, 
   SmartDisplay, 
-  Groups,
   EmojiPeople,
   School
 } from "@mui/icons-material";

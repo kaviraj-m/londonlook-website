@@ -8,7 +8,6 @@ import {
   Celebration,
   Deck,
   Flag,
-  EventNote,
   Diversity3,
   Flare
 } from "@mui/icons-material";

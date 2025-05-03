@@ -1,6 +1,5 @@
 import { Container, Typography, Card, CardContent, Stack, Box } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SchoolIcon from "@mui/icons-material/School";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
 import { motion } from "framer-motion";
@@ -14,7 +13,6 @@ import '@fontsource/comic-neue';
 
 // Create motion components
 const MotionCard = motion(Card);
-const MotionBox = motion(Box);
 const MotionStack = motion(Stack);
 
 export default function OfficeHours() {

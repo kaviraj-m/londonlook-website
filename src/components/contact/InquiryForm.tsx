@@ -38,7 +38,7 @@ const MotionCard = motion(Card);
 const MotionBox = motion(Box);
 
 // Styled components
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(TextField)(() => ({
   '& .MuiOutlinedInput-root': {
     borderRadius: 15,
     backgroundColor: 'rgba(255, 255, 255, 0.7)',

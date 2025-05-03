@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import { Container, Typography, Stepper, Step, StepLabel, Paper, Box, TextField, Button, Grid, Avatar, Link, CircularProgress, Snackbar, Alert } from "@mui/material";
-import { School, EventAvailable, Description, Payment, Stars, EmojiEvents, CloudQueue, Cake, Favorite, CloudDownload, CheckCircle } from "@mui/icons-material";
+import { Container, Typography, Stepper, Step, StepLabel, Paper, Box, TextField, Button, Grid, Link, CircularProgress, Snackbar, Alert } from "@mui/material";
+import { School, EventAvailable, Description, Payment, Stars, EmojiEvents, Favorite, CloudDownload } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
@@ -10,16 +10,6 @@ import '@fontsource/fredoka';
 import '@fontsource/patrick-hand';
 import '@fontsource/baloo-2';
 import '@fontsource/comic-neue';
-
-const StyledPaper = styled(Paper)({
-  transition: 'transform 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'translateY(-8px)',
-  },
-  boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-  overflow: 'hidden',
-  position: 'relative',
-});
 
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {

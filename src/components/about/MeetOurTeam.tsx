@@ -1,4 +1,4 @@
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, Avatar } from "@mui/material";
+import { Container, Typography, Grid, Card, CardContent, CardMedia, Box } from "@mui/material";
 import { School, Stars, EmojiPeople, AutoAwesome, Cake } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
